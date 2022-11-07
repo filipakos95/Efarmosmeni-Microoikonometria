@@ -37,6 +37,11 @@ input str16 Variable Mean StdDev Min Max
 end
 list
 
+*Import the dataset again
+clear all
+import excel using "microdataset1.xlsx", sheet("Sheet1") firstrow
+
+
 *krataw tis metablites pou xreiazomai
 keep wage educ age hours faminc exper
 
