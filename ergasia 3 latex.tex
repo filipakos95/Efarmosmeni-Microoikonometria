@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[10pt,towside,a4paper]{article}
 
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
@@ -15,14 +15,15 @@
 \renewcommand\tabularxcolumn[1]{C{#1}}
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{infwarerr}
-
+\usepackage{listings,,lipsum}
+\usepackage{float}
 
 \title{\textbf{THIRD ASSIGNMENT IN MICROECONOMETRICS}}
 
-\author{onoma , A.M.: \\
-	onoma, A.M.: \\
-	onoma, A.M.: \\
-	onoma, A.M.: }
+\author{Davoulou foteini , A.M.: 1054757 \\
+	Mitsos Filippos, A.M.: 1019913\\
+	Mponatsou Eleni, A.M.: 1067623 \\
+	Plesiti Freideriki, A.M.: 1104212 }
 
 \date{November, 2022\\
 	University of Patras\\
@@ -55,13 +56,13 @@
 	
 	Our study used data collected by the Statistical Service of the country of Ano Magoula. The data refer to a specific time period, in 2021 and the data set contains 21 variables and 753 observations. Specifically, there are some variables which refer to women, such as hours (wife's hours of work in 2021), age (wife's age), educ (wife's educational attainment, in years), wage (wife's average hourly earnings, in 2021 dollars), repwage (wife's wage reported at the time of the 2022 interview), motheduc (wife's mother's educational attainment, in years), fatheduc (wife's father's educational attainment, in years), exper (actual years of wife's previous labor market experience) and variable exper which is the squared value of the previous one. Then, concerning men, there are a variable hushrs which measure husband's hours worked in 2021, a variable husage(husband's age), huseduc (husband's educational attainment, in years), huswage (husband's wage, in 2021 dollars). Also, childt6 captures the number of children who are less than 6 years old in household and childge6 the number of children between ages 6 and 18 in household. There is a variable named city and indicates the size of the city and variables faminc and nwifeinc which are linked to family income, in 2021 dollars and non-wage family income (= [faminc – (wage*hours)/100]). Moreover, a variable inlf is an indicator oh the labor force participation. Finally, there are variables called mtr and unem which present the marginal tax rate and the unemployment rate in county of residence (in percentage points), respectively.
 	
-	\vspace {0.5\baselineskip}
+	
 	
 \section{Questions}
 	
-	\subsection{Question 1}
+	\section*{Question 1}
 	
-	\vspace {0.5\baselineskip}
+	
 	
 \begin{Center}
 	
@@ -101,63 +102,115 @@
 
 \end{Center}	
 	
-	\vspace {0.5\baselineskip}
+	
 	
 	In this table we show the summary statistics of the variables of the data set. First of all, we observed significant differences between the genders. Specifically, the wife’s wage is lower than husband’s per 3,3\$/h. In addition, the mean education of women is not significantly lower than men but the average of men works three times (hushrs) as much as the average women (hours).
 	
 	\vspace {0.5\baselineskip}
+
 	
-	\subsection{Question 2}
+	\section*{Question 2}
 	
-	\vspace {0.5\baselineskip}
+	
 	
 	In this question, the tables display the 10th, 25th, 50th, 75th, and 90th percentiles of the following variables: wage, education, age and experience. To rephrase this, it’s the percentage of data that falls at or below a certain observation.
 	
 	\vspace {0.5\baselineskip}
 
 
-\begin{figure}
+\begin{table}[h]
 	\begin{Center}
-	\includegraphics[width=0.5\linewidth]{percentiles1}
-	\caption{Provided by microdataset1 from Stata}
-	\label{fig:percentiles1}
+		\captionof{table}{Wage Statistic Table of Ano Magoula} \label{tab:title} 
+				\begin{tabular}{|c|c|c|c|c|}
+					\toprule
+					Variable & Std.dev & Percentile & Centile 	&	Median 	 \\
+					wage     & 3.31028 & 10 		& 1.4815  	&	4.17768  \\
+					 		 &		   & 25  	    & 2.2584    &  \\                            
+							 &          & 75  		& 4.9726    &   \\
+					  	   	 &          & 90  		& 7.6218    & \\
+				\bottomrule
+			\end{tabular} \par
+		Provided by microdataset1 from Stata
 	\end{Center}
-	\vspace {0.5\baselineskip}
 	
 	Firstly, as far as the hourly wife’s wage, we can see that the 10th percentile is 1.4815 dollars which means that 10\% of women got less than 1.48dollars/hour and remaining 90\% got more than 1.48 dollars/hour. In addition, the 25th percentile earns up to 2.25 dollars, the 75th up to 4.97 dollars , and the 95th up to 7.62 dollars per hour. Also, the median that we are requested to find and explain is the 50\% percentile. We can see that the median of  wage is 3.4819 wife’s average hourly earnings, in 2021 dollars.	
-\end{figure}	
-	\vspace {0.5\baselineskip}
-
-\begin{figure}
-	\begin{Center}
-	\includegraphics[width=0.5\linewidth]{percentiles2}
-	\caption{Provided by microdataset1 from Stata}
-	\label{fig:percentiles2}
-	\end{Center}
-	\vspace {0.5\baselineskip}
-
-	The distribution of women’s educational attainment is shown in the table above. As we can see the sample’s median level of education is 12 years. Also, up to 10 years of education are seen in the 10th percentile, 12 years in the 25th percentile, 13 years in the 75th percentile, and 16 years in the 90th percentile. The sample’s median level of education is 12 years. 
-\end{figure}
-	\vspace {0.5\baselineskip}
+\end{table}	
 	
-	\subsection{Question 3}
-	\vspace {0.5\baselineskip}
 
+\begin{table}[h]
+	\begin{Center}
+		\captionof{table}{educ Statistic Table of Ano Magoula} \label{tab:title} 
+	\begin{tabular}{|c|c|c|c|c|}
+		\toprule
+		Variable & Std.dev & Percentile & Centile 	&	Median 	 \\
+		educ     & 2.28025 & 10 		& 10  		&	12.2869  \\
+				 &		   & 25  	    & 12    	&  			\\                            
+				 &         & 75  		& 13    	&   		\\
+				 &         & 90  		& 16    	& 			\\
+		\bottomrule
+	\end{tabular} \par
+	Provided by microdataset1 from Stata
+	\end{Center}
+	The distribution of women’s educational attainment is shown in the table above. As we can see the sample’s median level of education is 12 years. Also, up to 10 years of education are seen in the 10th percentile, 12 years in the 25th percentile, 13 years in the 75th percentile, and 16 years in the 90th percentile. The sample’s median level of education is 12 years. 
+\end{table}
+	
+
+\begin{table}[h!]
+		\begin{Center}
+			\captionof{table}{age Statistic Table of Ano Magoula} \label{tab:title} 
+			\begin{tabular}{|c|c|c|c|c|}
+				\toprule
+				Variable & Std.dev & Percentile & Centile 	&	Median 	 \\
+				age      & 8.07257 & 10 		& 32  		&	42.5378  \\
+				&		 		   & 25  	    & 36    	&  			\\                            
+				&         		   & 75  		& 49    	&   		\\
+				&         		   & 90  		& 54    	& 			\\
+				\bottomrule
+			\end{tabular} \par
+			Provided by microdataset1 from Stata
+		\end{Center}
+		Here, Women’s ages are distributed in stated percentages. The 10th percentile describes the value below which 10\% of the data, when sorted, fall. In other words, women up to the age of 32 represents 10\% of the sample size, those up to the age of 36 represents 25\%, those up to the age of 49 represents 75\%, and those up to the age of 54 represents 90\%. Also, as we can see, the median age of wife is 43 years old. 
+\end{table}
+
+\begin{table}[H]
+	\begin{Center}
+		\captionof{table}{exper Statistic Table of Ano Magoula} \label{tab:title} 
+		\begin{tabular}{|c|c|c|c|c|}
+			\toprule
+			Variable & Std.dev & Percentile & Centile 	&	Median 	 \\
+			exper    & 8.06913 & 10 		& 2  		&	10.6308  \\
+			&		 		   & 25  	    & 4    	    &  			\\                            
+			&         		   & 75  		& 15    	&   		\\
+			&         		   & 90  		& 22    	& 			\\
+			\bottomrule
+		\end{tabular} \par
+		Provided by microdataset1 from Stata
+	\end{Center}
+	
+	
+	Concerning women’s years of experience, we can see that the median level of work experience is 9 years. Moreover, women with 2 years of work are in the 10th percentile, followed by those with 4 years in the 25th percentile, 15 years in the 75th percentile, and up to 22 years in the 90th percentile. 
+\end{table}
+	
+	\newpage
+	
+	\section*{Question 3}
 	Now, we continue the analysis by constructing histograms for each of the five variables wage, educ, age, hours and faminc.
+	
 
-\begin{figure}
+\begin{figure}[H]
 	\begin{Center}
 	\includegraphics[width=0.7\linewidth]{histogram of wage}
 	\caption{Provided by microdataset1 from Stata}
 	\label{fig:histogram of wage}
 	\end{Center}
-	\vspace {0.5\baselineskip}
+	
 	
 	This figure presents a histogram of wife's average hourly earnings, in 2021 dollars. The biggest concentration of the graph distinguishes on the left part of figure, indicating a right skewed distribution. We can note that the wife's average hourly earnings, which were more frequent, had the range of 2 to 4 dollars per hour.
 \end{figure}
-	\vspace {0.5\baselineskip}
+	
 
-\begin{figure}
+
+\begin{figure}[H]
 	\begin{Center}
 	\includegraphics[width=0.7\linewidth]{histogram of education}
 	\caption{Provided by microdataset1 from Stata}
@@ -169,7 +222,7 @@
 \end{figure}
 	\vspace {0.5\baselineskip}
 
-\begin{figure}
+\begin{figure}[H]
 	\begin{Center}
 	\includegraphics[width=0.7\linewidth]{histogram of age}
 	\caption{Provided by microdataset1 from Stata}
@@ -177,11 +230,12 @@
 	\end{Center}
 	\vspace {0.5\baselineskip}
 
+
 	Here we notice that the histogram is divided in 3 parts, wifes who are between ages of 30 and 40, those from 40 up to 50 and those from 50 up to 60. The most frequent group of wifes is those who are 30 years old and the less frequent is those who are close to 60 years old. The ages in between seem to be almost equally distributed.
 \end{figure}
 	\vspace {0.5\baselineskip}
 	
-\begin{figure}
+\begin{figure}[H]
 	\begin{Center}
 	\includegraphics[width=0.7\linewidth]{histogram of hours}
 	\caption{Provided by microdataset1 from Stata}
@@ -193,7 +247,7 @@
 \end{figure}
 	\vspace {0.5\baselineskip}
 	
-\begin{figure}
+\begin{figure}[H]
 	\begin{Center}
 	\includegraphics[width=0.7\linewidth]{histogram of family income}
 	\caption{Provided by microdataset1 from Stata}
@@ -205,7 +259,8 @@
 \end{figure}
 	\vspace {0.5\baselineskip}
 
-	\subsection{Question 4}
+	
+	\section*{Question 4}
 	\vspace {0.5\baselineskip}
 	
 	By studying the article, we observed that education has a positive relationship in education and wage, which it due to the increasing marginal productivity of labor associated with higher education. So, they define and calculate the relationship between dependent variable wage, the education and age of workers (independent variables). So, we quote a simple linear model of the effects of age and education: 
@@ -256,37 +311,60 @@ $u_t$ = disruptive term
 	\vspace {0.5\baselineskip}
 \end{Center}
 
-	\subsection{Question 5}
+
+	
+	\section*{Question 5}
 	\vspace {0.5\baselineskip}	
 	
 	Let’s perform a regression analysis using the variables wage and educ. 
 	We expect that better educational attainment would be associated with higher earnings. Below, we show the Stata command for testing this regression model followed by the Stata output. 
 	\vspace {0.5\baselineskip}
 	
-\begin{figure}
+\begin{table}[h]
 	\begin{Center}
-	\includegraphics[width=0.5\linewidth]{"reg wage educ"}
-	\caption{Provided by microdataset1 from Stata}
-	\label{fig:reg-wage-educ}
+	\captionof{table}{wage and educ Statistic Table } \label{tab:title} 
+	\begin{tabular}{|c |c |c |c |c |c c|}
+		\toprule
+		wage &Coefficient & Robust std.err. & t & P>|t| & 95\%conf. & interval \\ 
+		\midrule
+		educ & 0.4953084 	& 0.0675396 & 7.33  & 0.000 & 0.3625561  & 0.6280607\\
+		$_cons$ & -2.092367 & 0.8243551 & -2.54 & 0.011 & -3.712677  & -0.4720574\\
+		
+		\bottomrule
+		
+	\end{tabular} \par
+	
+	Provided by microdataset1 from Stata
 	\end{Center}
 	\vspace {0.5\baselineskip}
 	
 	The value of coefficient is equal to 0.4953 and this means that if education be increased by 1 year (marginal change) then, the wage is going to be increased by 0.4953 dollars per hour. Also, the positive sign at the coefficient indicates a positive relation between the variables of wage and education — which is what we would expect. Now, the most common hypothesis test in econometrics is the t-test of the null hypothesis that a coefficient equals zero. We observe that P  > |t| (p-value) = 0.000. So, choosing a significance level of 0.05 for our test of slope means that we reject the hypothesis of a zero slope, and the variable of education is statistically significant at the specific level. In addition, the R-squared of .1169 means that approximately 11\% of the variance of wage is accounted for by the model, in this case, educ. 
-\end{figure}
+\end{table}
 	\vspace {0.5\baselineskip}
 	
-
-	\subsection{Question 6}
+	
+	\section*{Question 6}
 	\vspace {0.5\baselineskip}
 	
 	Now, we regress the dependent variable, wage, on two predictor variables in the data set, educ and age.
 	\vspace {0.5\baselineskip}
 	
-\begin{figure}
+\begin{table}[H]
 	\begin{Center}
-		\includegraphics[width=0.5\linewidth]{"reg wage educ age"}
-		\caption{Provided by microdataset1 from Stata}
-		\label{fig:reg-wage-educ-age}
+		\captionof{table}{wage educ and age Statistic Table } \label{tab:title} 
+		\begin{tabular}{|c |c |c |c |c |c c|}
+			\toprule
+			wage &Coefficient & Robust std.err. & t & P>|t| & 95\%conf. & interval \\ 
+			\midrule
+			educ & 0.4989633 	& 0.675659 & 7.38  & 0.000 & 0.3661583  & 0.06317683\\
+			age & 0.207362 		& 0.020897 & 0.99  & 0.322 & -0.0203382 & 0.0618106 \\
+			$_cons$ & -3.008975 & 1.134307 & -2.65 & 0.008 & -5.238524  & -0.7794255\\
+			
+			\bottomrule
+			
+		\end{tabular} \par
+		
+		Provided by microdataset1 from Stata
 	\end{Center}
 	\vspace {0.5\baselineskip}
 	
@@ -294,18 +372,31 @@ $u_t$ = disruptive term
 	\vspace {0.5\baselineskip}
 	
 	Now, we will study the relationship between the variable of wage, the education of workers, the age of them and the square of age, which represents the polynomial of second degree for the effect of age on wages. In order to determine if there is a direct, or positive, relationship between them, we can calculate a statistical significance test, same as before. So, we conclude that none of the variables are statistically significant except for the variable wage.
-\end{figure}
+\end{table}
 
-\begin{figure}
+\begin{table}[H]
 	\begin{Center}
-	\includegraphics[width=0.5\linewidth]{"reg wage educ age poluonimo"}
-	\caption{Provided by microdataset1 from Stata}
-	\label{fig:reg-wage-educ-age-poluonimo}
+		\captionof{table}{Polynomial of age Statistic Table } \label{tab:title} 
+		\begin{tabular}{|c |c |c |c |c |c c|}
+		\toprule
+		wage &Coefficient & Robust std.err. & t & P>|t| & 95\%conf. & interval \\ 
+		\midrule
+		educ & 0.4991781 & 0.0677566 & 7.37 & 0.000 & 0.3659976 & 0.6323587\\
+		age & 0.062309 & 0.2402102 & 0.26 & 0.795 & -0.04098421 & 0.5344601\\
+		age2 & -0.0004851 & 0.0029162 & -0.17 & 0.868 & -0.0062171 & 0.005247\\
+		$_cons$ & -3.873235 & 4.946489 & -0.78 & 0.434 & -13.59593 & 5.849458\\
+		
+		\bottomrule
+		
+	\end{tabular} \par
+	
+	Provided by microdataset1 from Stata
 	\end{Center}
-\end{figure}
+\end{table}
 
-
-
+\section{Conclusion}
+	
+	In this report, based on the dataset of Ano Magoulas and according to basic statistics measures we calculated, conclude that although there aren’t substantial differences in education levels of the two genders, men’s earnings are bigger that those which received by women. Also, from the analysis of linear models with OLS method we realized that the education level in years is a considerable factor of the wage, in contrast with the variable age, which revealed statistical insignificant.
 
 
 \end{document}
